@@ -1,1 +1,17 @@
-<p>ride-list works!</p>
+<div class="ride-list">
+  <div class="content-container">
+    @if (scheduledRideList.length) {
+      <div class="ride-list__title">Scheduled ride list:</div>
+      <div class="ride-list__items">
+        @for (ride of scheduledRideList; track ride; let index = $index) {
+          <div class="ride-list__item">
+            <div class="ride-list__item-number">Ride {{ index + 1 }}</div>
+            <div>{{ ride.startingAddress }} - {{ ride.finalAddress }}</div>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="ride-list__title">There are no scheduled rides.</div>
+    }
+  </div>
+</div>

@@ -1,0 +1,24 @@
+.ride-list {
+  display: flex;
+  justify-content: center;
+
+  &__title,
+  &__items {
+    margin-top: 1rem;
+  }
+
+  &__item {
+    border: 1px solid rgb(124, 124, 124);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(235, 241, 255);
+    }
+  }
+
+  &__item-number {
+    margin-bottom: 0.5rem;
+  }
+}
