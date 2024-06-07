@@ -4,7 +4,7 @@
       <div class="ride-list__title">Scheduled ride list:</div>
       <div class="ride-list__items">
         @for (ride of scheduledRideList; track ride; let index = $index) {
-          <div class="ride-list__item">
+          <div class="ride-list__item" (click)="showRideDetails(index)">
             <div class="ride-list__item-number">Ride {{ index + 1 }}</div>
             <div>{{ ride.startingAddress }} - {{ ride.finalAddress }}</div>
           </div>

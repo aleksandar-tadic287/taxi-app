@@ -1,0 +1,26 @@
+.ride-details {
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    border: 1px solid rgb(124, 124, 124);
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    &:last-of-type {
+      margin-top: 2rem;
+      margin-bottom: 0;
+      font-size: 1.2rem;
+    }
+  }
+
+  &__item-title {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+}

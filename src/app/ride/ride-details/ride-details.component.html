@@ -1,1 +1,34 @@
-<p>ride-details works!</p>
+<div class="ride-details">
+  <div class="content-container">
+    @if (scheduledRideList.length) {
+      <div class="ride-details__container">
+        <div class="ride-details__item">
+          <span class="ride-details__item-title">Starting Address:</span>
+          <span>{{ scheduledRide.startingAddress }}</span>
+        </div>
+        <div class="ride-details__item">
+          <span class="ride-details__item-title">Final Address:</span>
+          <span>{{ scheduledRide.finalAddress }}</span>
+        </div>
+        <div class="ride-details__item">
+          <span class="ride-details__item-title">Date and Time of Scheduler Ride:</span>
+          <span>{{ scheduledRide.dateTime | date: 'MMMM d, y, h:mm a' }}</span>
+        </div>
+        <div class="ride-details__item">
+          <span class="ride-details__item-title">Your Phone Number:</span>
+          <span>{{ scheduledRide.phoneNumber }}</span>
+        </div>
+        <div class="ride-details__item">
+          <span class="ride-details__item-title">Payment Method:</span>
+          <span>{{ scheduledRide.paymentMethod }}</span>
+        </div>
+        <div class="ride-details__item">
+          <span class="ride-details__item-title">Total Price:</span>
+          <span>{{ scheduledRide.price | currency}}</span>
+        </div>
+      </div>
+    } @else {
+      <div class="ride-list__title">There are no ride details.</div>
+    }
+  </div>
+</div>
