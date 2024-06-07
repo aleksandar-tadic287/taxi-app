@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { SharedService } from '../../core/services/shared-service';
 
 @Component({
   selector: 'app-ride-form',
@@ -19,7 +20,8 @@ export class RideFormComponent implements OnInit {
   public formSubmitted!: boolean;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private sharedService: SharedService
   ) {
     this.rideForm = this.fb.group({
       startingAddress: ['', Validators.required],
@@ -49,6 +51,16 @@ export class RideFormComponent implements OnInit {
 
   submitForm(): void {
     this.formSubmitted = true;
-    console.log('Form submitted', this.rideForm.value);
+
+    if (this.rideForm.status === 'VALID') {
+      this.sharedService.addScheduledRide({
+        ...this.rideForm.value,
+        price: this.sharedService.getPriceForScheduledRide()
+      });
+
+      this.formSubmitted = false;
+      this.paymentMethod = '';
+      this.rideForm.reset();
+    }
   }
 }
