@@ -1,1 +1,78 @@
-<p>ride-form works!</p>
+<div class="ride-form">
+  <div class="content-container">
+    <form [formGroup]="rideForm">
+      <div class="ride-form__field">
+        <label class="ride-form__label" for="startingAdress">Starting Adress:</label>
+        <input
+          class="ride-form__input"
+          type="text"
+          formControlName="startingAdress"
+          id="startingAdress">
+      </div>
+      <div class="ride-form__field">
+        <label class="ride-form__label" for="finalAddress">Final Adress:</label>
+        <input
+          class="ride-form__input"
+          type="text"
+          formControlName="finalAddress"
+          id="finalAddress">
+      </div>
+      <div class="ride-form__field">
+        <label class="ride-form__label" for="dateTime">Date and Time:</label>
+        <input
+          class="ride-form__input"
+          type="datetime-local"
+          formControlName="dateTime"
+          id="dateTime">
+      </div>
+      <div class="ride-form__field">
+        <label class="ride-form__label" for="phoneNumber">Phone Number:</label>
+        <input
+          class="ride-form__input"
+          type="tel"
+          formControlName="phoneNumber"
+          id="phoneNumber">
+      </div>
+      <div class="ride-form__field">
+        <label class="ride-form__label" for="paymentMethod">Payment Method:</label>
+        <div class="ride-form__radio">
+          <div>
+            <span>Cash</span>
+            <input
+              type="radio"
+              formControlName="paymentMethod"
+              value="cash"
+              (change)="changePaymentMethod($event)">
+          </div>
+          <div>
+            <span>Card</span>
+            <input
+              type="radio"
+              formControlName="paymentMethod"
+              value="card"
+              (change)="changePaymentMethod($event)">
+          </div>
+        </div>
+      </div>
+      @if (paymentMethod === 'card') {
+        <div class="ride-form__field">
+          <label class="ride-form__label" for="cardNumber">Card Number:</label>
+          <input
+            class="ride-form__input"
+            type="text"
+            formControlName="cardNumber"
+            id="cardNumber">
+        </div>
+        <div class="ride-form__field">
+          <label class="ride-form__label" for="expirationCardDate">Card Expiration Date:</label>
+          <input
+            class="ride-form__input"
+            type="date"
+            formControlName="expirationCardDate"
+            id="expirationCardDate">
+        </div>
+      }
+    </form>
+    <button class="ride-form__button" (click)="submitForm()">Save</button>
+  </div>
+</div>

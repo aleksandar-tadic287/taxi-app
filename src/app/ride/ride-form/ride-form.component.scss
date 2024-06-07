@@ -1,0 +1,10 @@
+.ride-form {
+  display: flex;
+  justify-content: center;
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+}
