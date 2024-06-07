@@ -22,7 +22,7 @@ export class RideFormComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.rideForm = this.fb.group({
-      startingAdress: ['', Validators.required],
+      startingAddress: ['', Validators.required],
       finalAddress: ['', Validators.required],
       dateTime: ['', Validators.required],
       phoneNumber: ['', Validators.required],
@@ -48,6 +48,7 @@ export class RideFormComponent implements OnInit {
   }
 
   submitForm(): void {
+    this.formSubmitted = true;
     console.log('Form submitted', this.rideForm.value);
   }
 }

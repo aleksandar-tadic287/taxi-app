@@ -2,12 +2,15 @@
   <div class="content-container">
     <form [formGroup]="rideForm">
       <div class="ride-form__field">
-        <label class="ride-form__label" for="startingAdress">Starting Adress:</label>
+        <label class="ride-form__label" for="startingAddress">Starting Adress:</label>
         <input
           class="ride-form__input"
           type="text"
-          formControlName="startingAdress"
-          id="startingAdress">
+          formControlName="startingAddress"
+          id="startingAddress">
+        @if (formSubmitted && rideForm.controls['startingAddress'].invalid) {
+          <span class="ride-form__error">Field is required</span>
+        }
       </div>
       <div class="ride-form__field">
         <label class="ride-form__label" for="finalAddress">Final Adress:</label>
@@ -16,6 +19,9 @@
           type="text"
           formControlName="finalAddress"
           id="finalAddress">
+        @if (formSubmitted && rideForm.controls['finalAddress'].invalid) {
+          <span class="ride-form__error">Field is required</span>
+        }
       </div>
       <div class="ride-form__field">
         <label class="ride-form__label" for="dateTime">Date and Time:</label>
@@ -24,6 +30,9 @@
           type="datetime-local"
           formControlName="dateTime"
           id="dateTime">
+        @if (formSubmitted && rideForm.controls['dateTime'].invalid) {
+          <span class="ride-form__error">Field is required</span>
+        }
       </div>
       <div class="ride-form__field">
         <label class="ride-form__label" for="phoneNumber">Phone Number:</label>
@@ -32,6 +41,9 @@
           type="tel"
           formControlName="phoneNumber"
           id="phoneNumber">
+        @if (formSubmitted && rideForm.controls['phoneNumber'].invalid) {
+          <span class="ride-form__error">Field is required</span>
+        }
       </div>
       <div class="ride-form__field">
         <label class="ride-form__label" for="paymentMethod">Payment Method:</label>
@@ -53,6 +65,9 @@
               (change)="changePaymentMethod($event)">
           </div>
         </div>
+        @if (formSubmitted && rideForm.controls['paymentMethod'].invalid) {
+          <span class="ride-form__error">Field is required</span>
+        }
       </div>
       @if (paymentMethod === 'card') {
         <div class="ride-form__field">
@@ -62,6 +77,9 @@
             type="text"
             formControlName="cardNumber"
             id="cardNumber">
+          @if (formSubmitted && rideForm.controls['cardNumber'].invalid) {
+            <span class="ride-form__error">Field is required</span>
+          }
         </div>
         <div class="ride-form__field">
           <label class="ride-form__label" for="expirationCardDate">Card Expiration Date:</label>
@@ -70,6 +88,9 @@
             type="date"
             formControlName="expirationCardDate"
             id="expirationCardDate">
+          @if (formSubmitted && rideForm.controls['expirationCardDate'].invalid) {
+            <span class="ride-form__error">Field is required</span>
+          }
         </div>
       }
     </form>
